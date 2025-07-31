@@ -7,6 +7,14 @@
 #include "mmu.h"
 #include "proc.h"
 
+//Refer to readcount variable
+extern int readcount;
+
+int sys_getreadcount(void)
+{
+  return readcount; // return the count of reads to user
+}
+
 int
 sys_fork(void)
 {

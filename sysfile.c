@@ -16,6 +16,9 @@
 #include "file.h"
 #include "fcntl.h"
 
+//Setting up the count for reads
+int readcount = 0;
+
 // Fetch the nth word-sized system call argument as a file descriptor
 // and return both the descriptor and the corresponding struct file.
 static int
@@ -69,6 +72,8 @@ sys_dup(void)
 int
 sys_read(void)
 {
+  //Increasing read count by 1
+  readcount++;
   struct file *f;
   int n;
   char *p;
